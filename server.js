@@ -35,7 +35,7 @@ function homeRoute(req, res) {
   res.status(200).render('pages/index');
 }
 
-// Listen on port
+// Listen on the port
 app.listen(PORT, () => {
         console.log(`server is now listening on port ${PORT}`);
 });
