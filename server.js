@@ -29,10 +29,15 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', homeRoute);
+app.get('/searches/new', handleSearch);
 
 // Route functions
 function homeRoute(req, res) {
   res.status(200).render('pages/index');
+}
+
+function handleSearch(req, res) {
+  res.status(200).render('pages/searches/new');
 }
 
 // Listen on the port
