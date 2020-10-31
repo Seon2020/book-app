@@ -28,14 +28,14 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // Routes
-app.get('/hello', indexRender);
+app.get('/', homeRoute);
 
-// Route function 
-function indexRender(req, res) {
+// Route functions
+function homeRoute(req, res) {
   res.status(200).render('pages/index');
 }
 
 // Listen on port
 app.listen(PORT, () => {
         console.log(`server is now listening on port ${PORT}`);
-    });
+});
