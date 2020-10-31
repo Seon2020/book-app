@@ -1,5 +1,5 @@
 {
-  "name": "book-app",
+  "name": "book_app",
   "version": "1.0.0",
   "description": "labs 11-14",
   "main": "server.js",
@@ -21,13 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seon2020/book-app.git"
+    "url": "git+https://github.com/Seon2020/book_app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Seon2020/book-app/issues"
+    "url": "https://github.com/Seon2020/book_app/issues"
   },
-  "homepage": "https://github.com/Seon2020/book-app#readme",
+  "homepage": "https://github.com/Seon2020/book_app#readme",
   "keywords": []
 }
