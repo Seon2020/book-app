@@ -18,7 +18,7 @@ const app = express();
 // use CORS
 app.use(cors());
 
-// serve static css files
+// Serve static css files
 app.use(express.static('./public'));
 
 // Decode POST data

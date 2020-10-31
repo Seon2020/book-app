@@ -21,13 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seon2020/book_app.git"
+    "url": "git+https://github.com/Seon2020/book-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Seon2020/book_app/issues"
+    "url": "https://github.com/Seon2020/book-app/issues"
   },
-  "homepage": "https://github.com/Seon2020/book_app#readme",
+  "homepage": "https://github.com/Seon2020/book-app#readme",
   "keywords": []
 }
