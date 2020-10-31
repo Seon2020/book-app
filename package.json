@@ -1,5 +1,5 @@
 {
-  "name": "book-app",
+  "name": "book_app",
   "version": "1.0.0",
   "description": "labs 11-14",
   "main": "server.js",
