@@ -30,6 +30,8 @@ app.set('view engine', 'ejs');
 // Routes
 app.get('/', homeRoute);
 app.get('/searches/new', handleSearch);
+app.post('/searches', searchProcessor);
+app.get('/error', handleError);
 
 // Route functions
 function homeRoute(req, res) {
@@ -38,6 +40,46 @@ function homeRoute(req, res) {
 
 function handleSearch(req, res) {
   res.status(200).render('pages/searches/new');
+}
+
+function searchProcessor(req, res) {
+  let APIURL = `https://www.googleapis.com/books/v1/volumes?q=`;
+  const search = req.body.search;
+  const selection = req.body.select;
+
+  const max = 10;
+
+  if(selection === 'title') {
+    APIURL += `+intitle:${search}`;
+  }
+  if(selection === 'author') {
+    APIURL += `+inauthor:${search}`;
+  }
+
+  superagent.get(APIURL) 
+    .query(max)
+    .then(data => {
+      const arrOfBooks = data.body.items.map(search => {
+        return new Books(search);
+      });
+      res.status(200).render('pages/searches/show', {results: arrOfBooks});
+    })
+    .catch(error => {
+      handleError(req, res, error);
+    });
+}
+
+function handleError(req, res, error) {
+  res.status(500).render('pages/error');
+}
+
+
+//Constructors
+function Books(search) {
+  this.title = search.volumeInfo.title ? search.volumeInfo.title : 'Sorry, No Title Available';
+  this.author = search.volumeInfo.authors ? search.volumeInfo.authors : 'Sorry, No Author Available';
+  this.desc = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
+  this.img = search.volumeInfo.imageLinks.thumbnail ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
 // Listen on the port
