@@ -1,3 +1,24 @@
-h1 {
-  background-color: rgb(100, 21, 34);
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
+* {
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  background-color: gray;
+  text-align: center;
+  color: black;
+}
+
+legend, h1, header {
+  font-size: 24px; 
+  font-weight: bolder;
+  padding: 10px;
+}
+h1, header {
+  color: white;
+}
+span {
+  padding-right: 8px;
 }

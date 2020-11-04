@@ -1,0 +1,33 @@
+main {
+  width: 65vw;
+  height: 100%;
+  margin: 50px auto;
+}
+
+header {
+  position: strict;
+  line-height: 50px;
+  height: 50px;
+  width: 100%;
+  background-color: black;
+}
+
+legend, h1 {
+  background-color: rgb(105,105,105);
+}
+
+.flex-contain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 25px;
+}
+
+#searchContain {
+  margin-left: -50px;
+  width: 80%
+}
+.radio {
+  display: block;
+}

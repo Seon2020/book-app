@@ -73,7 +73,6 @@ function handleError(req, res, error) {
   res.status(500).render('pages/error');
 }
 
-
 //Constructors
 function Books(search) {
   this.title = search.volumeInfo.title ? search.volumeInfo.title : 'Sorry, No Title Available';
