@@ -12,17 +12,17 @@
     <form action="/searches" method="POST">
       <fieldset>
         <legend>Search by Title or Author</legend>
-        <div id="form">
+        <div id="searchContain">
           <label>
             <input type="text" name="search" placeholder="Enter a title or author" id="search">
           </label>  
           <label class="radio">
             <span>Title</span>
-            <input type="radio" name="search-type" value="title">
+            <input type="radio" name="select" value="title">
           </label>
           <label class="radio">
             <span>Author</span>
-            <input type="radio" name="search-type" value="author">
+            <input type="radio" name="select" value="author">
           </label>
 
           <button>Search the Google Books API</button>
