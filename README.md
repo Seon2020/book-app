@@ -21,7 +21,7 @@
 
 **Lab 11**  
 
-Feature #2  
+Feature #1  
 Number and name of feature: #1 - Load  
 Estimate of time needed to complete: 30m  
 Start time: 2:30pm  
