@@ -10,7 +10,7 @@
     <header>Best Books!</header>
 
     <form action="/searches" method="POST">
-      <fieldset>
+      <fieldset class="flex-contain">
         <legend>Search by Title or Author</legend>
         <div id="searchContain">
           <label>
@@ -24,9 +24,8 @@
             <span>Author</span>
             <input type="radio" name="select" value="author">
           </label>
-
-          <button>Search the Google Books API</button>
         </div>
+          <button>Search the Google Books API</button>
       </fieldset>
     </form>
   </body>
