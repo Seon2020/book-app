@@ -17,6 +17,20 @@
 
 - This app was built using JavaScript, node.js, express, dotenv, cors, ejs, and superagent. 
 
+**Schema:**
+```
+DROP TABLE IF EXISTS books;
+
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  author VARCHAR(255),
+  title VARCHAR(255),
+  isbn VARCHAR(255),
+  image_url VARCHAR(255),
+  description VARCHAR(255)
+);
+``` 
+
 ## Change Log
 
 **Lab 11**  
