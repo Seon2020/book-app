@@ -35,7 +35,14 @@ app.get('/error', handleError);
 
 // Route functions
 function homeRoute(req, res) {
-  res.status(200).render('pages/index');
+  const getSQL = `SELECT * FROM books`;
+  client.query(getSQL)
+    .then(savedBooks => {
+      res.status(200).render('pages/index', {savedBooks: savedBooks.rows});
+    })
+    .catch(error => {
+      handleError(req, res, error);
+    });
 }
 
 function handleSearch(req, res) {
