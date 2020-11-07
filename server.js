@@ -39,7 +39,7 @@ app.get('/error', handleError);
 
 // Route functions
 function homeRoute(req, res) {
-  const getSQL = `SELECT * FROM books`;
+  const getSQL = ` SELECT * FROM books`;
   client.query(getSQL)
     .then(savedBooks => {
       res.status(200).render('pages/index', { savedBooks: savedBooks.rows });
@@ -88,7 +88,7 @@ function handleError(req, res, error) {
 function Books(search) {
   this.title = search.volumeInfo.title ? search.volumeInfo.title : 'Sorry, No Title Available';
   this.author = search.volumeInfo.authors ? search.volumeInfo.authors : 'Sorry, No Author Available';
-  this.desc = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
+  this.description = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
   this.img = search.volumeInfo.imageLinks.thumbnail ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
