@@ -89,7 +89,7 @@ function Books(search) {
   this.title = search.volumeInfo.title ? search.volumeInfo.title : 'Sorry, No Title Available';
   this.author = search.volumeInfo.authors ? search.volumeInfo.authors : 'Sorry, No Author Available';
   this.description = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
-  this.img = search.volumeInfo.imageLinks.thumbnail ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
+  this.image_url = search.volumeInfo.imageLinks.thumbnail ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
 //Connect to DB
