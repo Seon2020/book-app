@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const ejs = require('ejs');
+const pg = require('pg');
 
 //Load environment variables from .env
 require('dotenv').config();
@@ -14,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 
 // Start express
 const app = express();
+
+// define client
+const client = new pg.Client(process.env.DATABASE_URL);
 
 // use CORS
 app.use(cors());
@@ -38,7 +42,7 @@ function homeRoute(req, res) {
   const getSQL = `SELECT * FROM books`;
   client.query(getSQL)
     .then(savedBooks => {
-      res.status(200).render('pages/index', {savedBooks: savedBooks.rows});
+      res.status(200).render('pages/index', { savedBooks: savedBooks.rows });
     })
     .catch(error => {
       handleError(req, res, error);
@@ -87,6 +91,9 @@ function Books(search) {
   this.desc = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
   this.img = search.volumeInfo.imageLinks.thumbnail ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
+
+//Connect to DB
+client.connect();
 
 // Listen on the port
 app.listen(PORT, () => {
