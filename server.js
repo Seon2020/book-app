@@ -36,6 +36,7 @@ app.get('/', homeRoute);
 app.get('/searches/new', handleSearch);
 app.post('/searches', searchProcessor);
 app.get('/error', handleError);
+app.get('/books/:id', singleBookReq);
 
 // Route functions
 function homeRoute(req, res) {
@@ -80,6 +81,18 @@ function searchProcessor(req, res) {
     });
 }
 
+function singleBookReq (req, res) {
+  const bookID = req.params.id;
+  const getSQL = `SELECT * FROM books where id = $1`;
+  client.query(getSQL, [bookID])
+    .then(books => {
+      res.status(200).render('pages/books/detail', { books: books.rows })
+    })
+    .catch(error => {
+      handleError(req, res, error);
+    });
+}
+
 function handleError(req, res, error) {
   res.status(500).render('pages/error');
 }
@@ -89,7 +102,7 @@ function Books(search) {
   this.title = search.volumeInfo.title ? search.volumeInfo.title : 'Sorry, No Title Available';
   this.author = search.volumeInfo.authors ? search.volumeInfo.authors : 'Sorry, No Author Available';
   this.description = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
-  this.image_url = search.volumeInfo.imageLinks.thumbnail ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
+  this.image_url = search.volumeInfo.imageLinks ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
 //Connect to DB
