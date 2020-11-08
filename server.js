@@ -95,7 +95,7 @@ function singleBookReq (req, res) {
 }
 
 function addBook (req, res) {
-  const insertInSql = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES ($1,$2,$3,$4,$5) RETURNING *';
+  const insertInSql = `INSERT INTO books (author, title, isbn, image_url, description) VALUES ($1,$2,$3,$4,$5) RETURNING *`;
   const params = [req.body.author, req.body.title, req.body.isbn, req.body.image_url, req.body.description];
   client.query(insertInSql, params)
     .then(book => {
@@ -115,6 +115,7 @@ function Books(search) {
   this.title = search.volumeInfo.title ? search.volumeInfo.title : 'Sorry, No Title Available';
   this.author = search.volumeInfo.authors ? search.volumeInfo.authors : 'Sorry, No Author Available';
   this.description = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
+  this.isbn = search.volumeInfo.industryIdentifiers.identifiers ? search.volumeInfo.industryIdentifiers.identifiers : "no isbn available";
   this.image_url = search.volumeInfo.imageLinks ? search.volumeInfo.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
