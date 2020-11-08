@@ -34,9 +34,10 @@ app.set('view engine', 'ejs');
 // Routes
 app.get('/', homeRoute);
 app.get('/searches/new', handleSearch);
-app.post('/searches', searchProcessor);
 app.get('/error', handleError);
 app.get('/books/:id', singleBookReq);
+app.post('/searches', searchProcessor);
+app.post('/books', addBook);
 
 // Route functions
 function homeRoute(req, res) {
@@ -87,6 +88,18 @@ function singleBookReq (req, res) {
   client.query(getSQL, [bookID])
     .then(books => {
       res.status(200).render('pages/books/detail', { books: books.rows })
+    })
+    .catch(error => {
+      handleError(req, res, error);
+    });
+}
+
+function addBook (req, res) {
+  const insertInSql = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES ($1,$2,$3,$4,$5) RETURNING *';
+  const params = [req.body.author, req.body.title, req.body.isbn, req.body.image_url, req.body.description];
+  client.query(insertInSql, params)
+    .then(book => {
+      res.status(200).redirect(`/books/${book.rows[0].id}`)
     })
     .catch(error => {
       handleError(req, res, error);
