@@ -53,7 +53,7 @@ function homeRoute(req, res) {
   const getSQL = ` SELECT * FROM books`;
   client.query(getSQL)
     .then(savedBooks => {
-      res.status(200).render('pages/index', {savedBooks: savedBooks.rows});
+      res.status(200).render('pages/index', { savedBooks: savedBooks.rows });
     })
     .catch(error => {
       handleError(req, res, error);
@@ -70,10 +70,10 @@ function handleError(req, res, error) {
 
 function singleBookReq (req, res) {
   const bookID = req.params.id;
-  const getSQL = `SELECT * FROM books where id = $1`;
+  const getSQL = `SELECT * FROM books WHERE id = $1`;
   client.query(getSQL, [bookID])
-    .then(books => {
-      res.status(200).render('pages/books/detail', { books: books.rows })
+    .then(results => { 
+      res.status(200).render('pages/books/show', { book: results.rows[0] })
     })
     .catch(error => {
       handleError(req, res, error);

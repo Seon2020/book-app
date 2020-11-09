@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css">
-    <title>Book Application</title>
+    <%- include('../../layout/head') %>
   </head>
   <body>
-    <header>Best Books!</header>
-
+    <%- include('../../layout/header') %>
     <form action="/searches" method="POST">
       <fieldset class="flex-contain">
         <legend>Search by Title or Author</legend>

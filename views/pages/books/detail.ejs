@@ -1,10 +1,10 @@
 <section>
-    <% books.forEach(book => { %>
-    <img src="<%= book.image_url %>">
-    <h2><%= book.title %></h2>
-    <h3><%= book.author %></h3>
-    <p>ISBN: <%= book.isbn %></p>
-    <p><%= book.description %></p>
-    <a href="/">Navigate Home</a>
-  <% }) %>
+  <img src="<%= book.image_url %>">
+  <h2><%= book.title %></h2>
+  <h3><%= book.author %></h3>
+  <div id="textBox">
+  <p><%= book.description %></p>
+  </div>
+  <p>ISBN: <%= book.isbn %></p>
 </section>
+

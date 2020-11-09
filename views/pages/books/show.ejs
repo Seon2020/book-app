@@ -1,6 +1,10 @@
 <!DOCTYPE html>
   <html lang="en">
-    <body>
-      <%- include('detail.ejs') %>
-    </body>
-  </html>
+    <head>
+      <%- include('../../layout/head') %>
+    </head>
+  <body class="detail">
+    <%- include('../../layout/header') %>
+    <%- include('detail', {book: book}) %>
+    <a class="navHome" href="/">Navigate Home</a>
+  </body>
