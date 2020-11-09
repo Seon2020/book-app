@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css">
-    <title>Book Application</title>
+    <%- include('../layout/head') %>
   </head>
   <body>
-    <header><a href="/">Best Books!</a></header>
-    <form action="/" method="POST">
+    <%- include('../layout/header') %>
     <main>
       <section><%= savedBooks.length %> Saved Books</section>
       <% savedBooks.forEach(book => { %>
         <section>
-          <img src="<%= book.image_url %>">
-          <h2><%= book.title %></h2>
-          <h3><%= book.author %></h3>
-          <p>ISBN: <%= book.isbn %></p>
-          <p><%= book.description %></p>
-          <a href="/books/<%= book.id %>">View Details</a> 
+         <%- include('books/detail', {book: book}) %>
+        <a class="homepage" href="/books/<%= book.id %>">View details</a>
         </section>
-        <% }) %>
+      <% }) %>
     </main>
-  </form>
   </body>
 </html>
