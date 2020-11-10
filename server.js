@@ -6,6 +6,7 @@ const cors = require('cors');
 const superagent = require('superagent');
 const ejs = require('ejs');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 //Load environment variables from .env
 require('dotenv').config();
@@ -31,6 +32,9 @@ app.use(express.urlencoded({ extended: true }));
 // set view engine
 app.set('view engine', 'ejs');
 
+// Utilize other HTTP verbs
+app.use(methodOverride('_method'));
+
 // Routes
 app.get('/', homeRoute);
 app.get('/searches/new', handleSearch);
@@ -38,6 +42,8 @@ app.get('/error', handleError);
 app.get('/books/:id', singleBookReq);
 app.post('/searches', searchProcessor);
 app.post('/books', addBook);
+app.put('/edit/:id', editBook);
+app.delete('/delete/:id', deleteBook);
 
 //Constructors
 function Books(search) {
@@ -45,7 +51,7 @@ function Books(search) {
   this.author = search.volumeInfo.authors ? search.volumeInfo.authors : 'Sorry, No Author Available';
   this.description = search.volumeInfo.description ? search.volumeInfo.description : 'Sorry, No Description Available';
   this.isbn = search.volumeInfo.industryIdentifiers ? search.volumeInfo.industryIdentifiers[0].identifier : 'no isbn available';
-  this.image_url = search.volumeInfo.imageLinks ? search.volumeInfo.imageLinks.smallThumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
+  this.image_url = search.volumeInfo.imageLinks ? search.volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
 // Route functions
@@ -120,6 +126,29 @@ function addBook (req, res) {
     });
 }
 
+function editBook (req, res) {
+  const sql = 'UPDATE books SET author = $1, title = $2, isbn = $3, image_url = $4, description = $5 WHERE id = $6';
+  const book = req.body;
+  const params = [book.author, book.title, book.isbn, book.image_url, book.description, req.params.id];
+  client.query(sql, params)
+    .then(() => {
+      res.status(200).redirect(`/books/${req.params.id}`);
+    })
+    .catch(error => {
+      handleError(req, res, error);
+    });
+}
+
+function deleteBook (req, res) {
+  const sql = 'DELETE FROM books WHERE id = $1'
+  const params = [req.params.id];
+
+  client.query(sql, params)
+    .then(() => res.status(200).redirect('/'))
+    .catch(error => {
+      handleError(req, res, error);
+    });
+}
 //Connect to DB
 client.connect();
 
