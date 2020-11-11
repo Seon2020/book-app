@@ -83,5 +83,66 @@ Finish time: 11:15pm
 Actual time needed to complete: 15m  
 11-03-2020 11:15pm- Homepage displayed  
 
+**Lab 12**  
+
+Feature #1  
+Number and name of feature: #1 - Saved Books  
+Estimate of time needed to complete: 1H  
+Start time: 6:30pm    
+Finish time: 8:15pm    
+Actual time needed to complete: 1H 45m     
+11-5-2020 8:15pm - Saved books displayed on homepage    
+
+Feature #2    
+Number and name of feature: #2 - Book details page    
+Estimate of time needed to complete: 1H      
+Start time: 8:15pm    
+Finish time: 9:30pm    
+Actual time needed to complete: 1H 15m    
+11-5-2020 9:30pm - Details page created    
+
+Feature #3    
+Number and name of feature: #3 - Add new books      
+Estimate of time needed to complete: 1H     
+Start time: 5:30pm    
+Finish time: 6:15pm    
+Actual time needed to complete: 45m    
+11-6-2020 6:15pm - New books can be added     
+
+Feature #4   
+Number and name of feature: #4 - Layout partials    
+Estimate of time needed to complete: 1H      
+Start time: 6:15pm    
+Finish time: 7:15pm    
+Actual time needed to complete: 1H     
+11-6-2020 7:15pm - Layout partials created and implemented    
+
+Feature #5    
+Number and name of feature: #5 - Clean UI   
+Estimate of time needed to complete: 30m    
+Start time: 7:15pm    
+Finish time: 8:15pm    
+Actual time needed to complete: 1H    
+11-6-2020 8:15pm - UI cleaned up    
+
+
+**Lab 13**  
+
+Feature #1    
+Number and name of feature: #1 - Update Details    
+Estimate of time needed to complete: 1H    
+Start time: 2:30pm    
+Finish time: 4:15pm    
+Actual time needed to complete: 1H 45m    
+11-11-2020 4:15pm - Details can be updated    
+
+Feature #2    
+Number and name of feature: #2 - Delete Book      
+Estimate of time needed to complete: 30m    
+Start time: 8:30pm    
+Finish time: 9:15pm    
+Actual time needed to complete: 45m    
+11-10-2020 9:15pm - Books can now be deleted   
+
 ## Credits and Collaborations  
 - In collaboration with Nebiyu Kifle  
