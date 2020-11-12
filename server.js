@@ -56,11 +56,16 @@ function Books(search) {
 
 // Route functions
 function homeRoute(req, res) {
+  // make sql query to select all from books table
   const getSQL = ` SELECT * FROM books`;
+  //client query with sql query statement
   client.query(getSQL)
+  //Pass the resulting data in the .then function
     .then(savedBooks => {
+  //render the index (home) page with the data. savedBooks here is the property name and savedbooks.rows is an array of objects (value of that property). 
       res.status(200).render('pages/index', { savedBooks: savedBooks.rows });
     })
+  // If unable to render that page, .catch will allow error function to run instead
     .catch(error => {
       handleError(req, res, error);
     });
@@ -119,6 +124,7 @@ function addBook (req, res) {
   const params = [req.body.author, req.body.title, req.body.isbn, req.body.image_url, req.body.description];
   client.query(insertInSql, params)
     .then(book => {
+/* book.rows[0]: Row just inserted in the database .id: gets the id for that new row*/
       res.status(200).redirect(`/books/${book.rows[0].id}`)
     })
     .catch(error => {

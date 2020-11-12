@@ -6,7 +6,11 @@
   <body class="detail">
     <%- include('../../layout/header') %>
     <%- include('detail', {book: book}) %>
-    <button>Update Details</button>
-    <button>Delete Book</button>
-    <a class="navHome" href="/">Navigate Home</a> 
+    <button id="updateButton">Update Details</button>
+    <%- include('edit', {book: book}) %>
+    <form action="/delete/<%=book.id%>?_method=DELETE" method="post">
+    <button id="delButt">Delete Book</button>
+    </form>
+    <a class="navHome" id="navHomeButt" href="/">Navigate Home</a> 
+    <script src="/app.js"></script>
   </body>
