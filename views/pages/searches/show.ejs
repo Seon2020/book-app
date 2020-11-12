@@ -5,7 +5,7 @@
   </head>
   <body>
     <%- include('../../layout/header') %>
-      <section>Results</section>
+      <section id="searchResults">Results</section>
       <main>
       <form action="/searches/show" method="POST">
       <% results.forEach(book => { %>

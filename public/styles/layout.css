@@ -16,6 +16,19 @@ legend, h1 {
   background-color: rgb(105,105,105);
 }
 
+#searchResults {
+  margin-top: 25px;
+  width: 64%;
+  font-size: 28px; 
+  font-weight: bolder;
+  padding: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#newSearch {
+  width: 65%;
+}
+
 .flex-contain {
   display: flex;
   flex-direction: column;
@@ -26,10 +39,14 @@ legend, h1 {
 
 #searchContain {
   margin-left: -50px;
-  width: 80%
+  width: 80%;
 }
 
 .radio {
   display: block;
   margin-left: 22px;
+}
+
+#outerSec {
+  background-color: rgb(33, 170, 125);
 }
