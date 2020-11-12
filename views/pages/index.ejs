@@ -8,7 +8,7 @@
     <main>
       <section><%= savedBooks.length %> Saved Books</section>
       <% savedBooks.forEach(book => { %>
-        <section>
+        <section id="outerSec">
 <!-- {book: book} is the data we want to use in the template -->
          <%- include('books/detail', {book: book}) %>
         <a class="homepage" href="/books/<%= book.id %>">View details</a>
