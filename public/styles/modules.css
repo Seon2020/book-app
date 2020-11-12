@@ -19,6 +19,53 @@ label {
   text-align: left;
 }
 
+/* Update Form */
+#updateForm {
+  border: 6px dashed rgb(16, 37, 77);
+}
+
+#saveButton {
+  background-color: rgb(27, 62, 128);
+}
+
+#saveButton:hover {
+  background-color: rgb(16, 36, 73);
+}
+
+#navHomeButt {
+  padding: 10px;
+}
+
+#delButt {
+  margin-bottom: 30px;
+}
+
+.edit {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  height: 25px;
+  margin-top: 12px;
+  border: 3px solid rgb(27, 62, 128);
+}
+
+.edit:focus {
+  background-color: rgb(211, 209, 209);
+}
+
+.editDes {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  overflow: auto;
+  margin-top: 12px;
+  border: 3px solid rgb(27, 62, 128);
+} 
+
+.editDes:focus {
+  background-color: rgb(211, 209, 209);
+}
+
 /* Buttons */
 button {
   height: 2em;

@@ -1,8 +1,10 @@
+<form id="updateForm" action="/edit/<%=book.id%>?_method=PUT" method="post">
 <fieldset>
-  <input type="url" name="image_url" value="<%= book.image_url" %>">
-  <input type="text" name="title" value="<%= book.title" %>">
-  <input type="text" name="author" value="<%= book.author" %>">
-  <textarea name="description" rows="6"><%= book.description %></textarea>
-  <input type="text" name="isbn" value="<%= book.isbn" %>">
+  <input type="url" class="edit" name="image_url" value="<%= book.image_url %>">
+  <input type="text" class="edit" name="title" value="<%= book.title %>">
+  <input type="text" class="edit" name="author" value="<%= book.author %>">
+  <textarea class="editDes" name="description" rows="6"><%= book.description %></textarea>
+  <input type="text" class="edit" name="isbn" value="<%= book.isbn %>">
 </fieldset>
-<button type="submit">Save Book Details</button>
+<button id="saveButton" type="submit">Save Book Details</button>
+</form>
