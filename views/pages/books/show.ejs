@@ -5,12 +5,16 @@
     </head>
   <body class="detail">
     <%- include('../../layout/header') %>
+<!-- include detail partial to display book details -->
     <%- include('detail', {book: book}) %>
     <button id="updateButton">Update Details</button>
+<!-- include the edit partial that contains the form to edit details -->
     <%- include('edit', {book: book}) %>
+<!-- remove book from db through the /delete/:id route -->
     <form action="/delete/<%=book.id%>?_method=DELETE" method="post">
     <button id="delButt">Delete Book</button>
     </form>
-    <a class="navHome" id="navHomeButt" href="/">Navigate Home</a> 
+    <a class="navHome" id="navHomeButt" href="/">Navigate Home</a>
+<!-- include app.js script for event handlers (to show the form in edit.ejs) --> 
     <script src="/app.js"></script>
   </body>
